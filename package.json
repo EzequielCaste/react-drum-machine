@@ -1,13 +1,11 @@
 {
-  "name": "react",
+  "name": "react-drum-machine",
   "version": "1.0.0",
-  "description": "React example starter project",
-  "keywords": [
-    "react",
-    "starter"
-  ],
+  "description": "FCC Front End Library Project",
+  "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "howler": "2.2.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-scripts": "3.0.1"

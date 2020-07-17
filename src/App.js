@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles.css";
+import Machine from "./Machine";
+import { handleEvents } from "./handleEvents";
 
 export default function App() {
+  useEffect(() => {
+    window.addEventListener("keydown", handleEvents);
+  }, []);
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <Machine />
     </div>
   );
 }
