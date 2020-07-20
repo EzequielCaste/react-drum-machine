@@ -1,15 +1,31 @@
-import React, { useEffect } from "react";
-import "./styles.css";
-import Machine from "./Machine";
-import { handleEvents } from "./handleEvents";
+import React, { useState } from "react";
+import Pad from "./Pad";
+import Label from "./Label";
+import { sounds } from "./sounds";
 
 export default function App() {
-  useEffect(() => {
-    window.addEventListener("keydown", handleEvents);
-  }, []);
+  const [currentLabel, setCurrentLabel] = useState("");
+  const [style, setStyle] = useState({
+    backgroundColor: "red"
+  });
+  function playSound(id) {
+    setStyle({
+      backgroundColor: "black"
+    });
+    const player = document.getElementById(id);
+    player.currentTime = "0";
+    player.play();
+    setCurrentLabel(id);
+    const timer = setTimeout(() => {
+      setStyle({
+        backgroundColor: "red"
+      });
+    }, 100);
+  }
   return (
-    <div className="App">
-      <Machine />
-    </div>
+    <>
+      <Pad style={style} onClick={playSound} sound={sounds[0]} />
+      <Label text={currentLabel} />
+    </>
   );
 }
