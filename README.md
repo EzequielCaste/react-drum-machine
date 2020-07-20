@@ -1,2 +1,2 @@
-# react-drum-machine
+# React Drum Machine
 Created with CodeSandbox
