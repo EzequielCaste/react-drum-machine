@@ -5,9 +5,7 @@ import { sounds } from "./sounds";
 
 export default function App() {
   const [currentLabel, setCurrentLabel] = useState("");
-  const [style, setStyle] = useState({
-    backgroundColor: "red"
-  });
+
   useEffect(() => {
     sounds.forEach(item => {
       window.addEventListener("keydown", e => {
@@ -24,18 +22,17 @@ export default function App() {
     });
   }, []);
   function playSound(id) {
-    // setStyle({
-    //   backgroundColor: "black"
-    // });
     const player = document.getElementById(id);
     player.currentTime = "0";
-    player.play();
+    const audioPromise = player.play();
+    if (audioPromise !== undefined) {
+      audioPromise
+        .then(_ => {})
+        .catch(error => {
+          console.log(error);
+        });
+    }
     setCurrentLabel(player.parentElement.id);
-    // const timer = setTimeout(() => {
-    //   setStyle({
-    //     backgroundColor: "red"
-    //   });
-    // }, 100);
   }
 
   const components = sounds.map(item => {
@@ -43,7 +40,8 @@ export default function App() {
   });
   return (
     <div id="drum-machine">
-      <div>{components}</div>
+      <h1>React Drum Machine</h1>
+      <div id="drum-pad">{components}</div>
       <Label text={currentLabel} />
     </div>
   );
