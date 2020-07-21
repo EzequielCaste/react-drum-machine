@@ -12,13 +12,13 @@ export default function App() {
     sounds.forEach(item => {
       window.addEventListener("keydown", e => {
         if (e.keyCode === item.keyCode) {
-          playSound(item.id);
-          document.getElementById(item.id + "_Btn").classList.add("active");
+          playSound(item.keyTrigger);
+          document.getElementById(item.id).classList.add("active");
         }
       });
       window.addEventListener("keyup", e => {
         if (e.keyCode === item.keyCode) {
-          document.getElementById(item.id + "_Btn").classList.remove("active");
+          document.getElementById(item.id).classList.remove("active");
         }
       });
     });
@@ -30,7 +30,7 @@ export default function App() {
     const player = document.getElementById(id);
     player.currentTime = "0";
     player.play();
-    setCurrentLabel(id);
+    setCurrentLabel(player.parentElement.id);
     // const timer = setTimeout(() => {
     //   setStyle({
     //     backgroundColor: "red"
@@ -42,9 +42,9 @@ export default function App() {
     return <Pad key={item.keyTrigger} onClick={playSound} sound={item} />;
   });
   return (
-    <>
-      {components}
+    <div id="drum-machine">
+      <div>{components}</div>
       <Label text={currentLabel} />
-    </>
+    </div>
   );
 }
