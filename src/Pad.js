@@ -1,26 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Pad(props) {
-  const { sound } = props;
-
-  useEffect(() => {
-    window.addEventListener("keydown", e => {
-      if (e.keyCode === sound.keyCode) {
-        props.onClick(sound.id);
-      }
-    });
-  }, [sound.id]);
-
   return (
-    <>
-      <button
-        style={props.style}
-        id={sound.id + "_Btn"}
-        onClick={() => props.onClick(sound.id)}
-      >
-        {sound.keyTrigger}
-        <audio src={sound.url} id={sound.id} />
-      </button>
-    </>
+    <button
+      style={props.style}
+      id={props.sound.id + "_Btn"}
+      onClick={() => props.onClick(props.sound.id)}
+    >
+      {props.sound.keyTrigger}
+      <audio src={props.sound.url} id={props.sound.id} />
+    </button>
   );
 }
