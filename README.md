@@ -1,6 +1,6 @@
 # React Drum Machine
 
-[Live Demo](https://csb-3zwt6.ezzep66.vercel.app/)
+[Live Demo](https://csb-j7q6r-5jyovtmww.vercel.app/)
 
 ![Imgur](https://i.imgur.com/SO3uMEZ.png)
 
