@@ -1,6 +1,6 @@
 # React Drum Machine
 
-[Live Demo](drum-machine-ecaste.now.sh)
+[Demo](drum-machine-ecaste.now.sh)
 
 ![Imgur](https://i.imgur.com/SO3uMEZ.png)
 
